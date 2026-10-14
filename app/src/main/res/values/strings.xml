@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">PSI West</string>
+    <string name="label">West · 1-hr PM2.5</string>
+    <string name="unit">µg/m³</string>
+    <string name="loading">Loading…</string>
+    <string name="updating">Updating…</string>
+    <string name="widget_description">Singapore West 1-hr PM2.5 and 24-hr PSI from NEA</string>
+    <string name="instructions">PSI West is installed.\n\nTo add the widget: long-press an empty spot on your home screen, tap Widgets, find PSI West, and drag it onto your screen.\n\nIt shows the West region 1-hr PM2.5 (colour-coded by NEA band) and 24-hr PSI, and refreshes every hour. Tap the widget to refresh it immediately.\n\nData: NEA via data.gov.sg.</string>
+</resources>

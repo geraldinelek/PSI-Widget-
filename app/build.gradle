@@ -1,0 +1,46 @@
+plugins {
+    id 'com.android.application'
+}
+
+def buildNumber = (System.getenv('GITHUB_RUN_NUMBER') ?: '1').toInteger()
+
+android {
+    namespace 'com.geri.psiwest'
+    compileSdk 35
+
+    defaultConfig {
+        applicationId 'com.geri.psiwest'
+        minSdk 26
+        targetSdk 35
+        versionCode buildNumber
+        versionName "1.${buildNumber}"
+    }
+
+    // Fixed signing key so each new build installs over the previous one.
+    // This is a personal sideloaded app, so the key lives in the repo.
+    signingConfigs {
+        release {
+            storeFile file('psiwest.keystore')
+            storePassword 'psiwest'
+            keyAlias 'psiwest'
+            keyPassword 'psiwest'
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            signingConfig signingConfigs.release
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+
+    lint {
+        checkReleaseBuilds false
+        abortOnError false
+    }
+}
