@@ -1,70 +1,84 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- Every line auto-shrinks to fit the widget width; the number fills the leftover height. -->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/root"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/bg_neutral"
-    android:gravity="center_vertical"
     android:orientation="vertical"
-    android:padding="12dp">
+    android:paddingStart="12dp"
+    android:paddingEnd="10dp"
+    android:paddingTop="10dp"
+    android:paddingBottom="10dp">
 
     <TextView
         android:id="@+id/label"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="16dp"
+        android:autoSizeMaxTextSize="13sp"
+        android:autoSizeMinTextSize="7sp"
+        android:autoSizeStepGranularity="0.5sp"
+        android:autoSizeTextType="uniform"
+        android:includeFontPadding="false"
+        android:maxLines="1"
         android:text="@string/label"
         android:textColor="#FFFFFF"
-        android:textSize="13sp"
         android:textStyle="bold" />
 
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:baselineAligned="true"
-        android:orientation="horizontal">
-
-        <TextView
-            android:id="@+id/value"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="--"
-            android:textColor="#FFFFFF"
-            android:textSize="40sp"
-            android:textStyle="bold" />
-
-        <TextView
-            android:id="@+id/unit"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="4dp"
-            android:text="@string/unit"
-            android:textColor="#FFFFFF"
-            android:textSize="12sp" />
-    </LinearLayout>
+    <TextView
+        android:id="@+id/value"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:autoSizeMaxTextSize="96sp"
+        android:autoSizeMinTextSize="20sp"
+        android:autoSizeStepGranularity="1sp"
+        android:autoSizeTextType="uniform"
+        android:gravity="start|center_vertical"
+        android:includeFontPadding="false"
+        android:maxLines="1"
+        android:text="--"
+        android:textColor="#FFFFFF"
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/band"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="17dp"
+        android:autoSizeMaxTextSize="14sp"
+        android:autoSizeMinTextSize="7sp"
+        android:autoSizeStepGranularity="0.5sp"
+        android:autoSizeTextType="uniform"
+        android:includeFontPadding="false"
+        android:maxLines="1"
         android:text="@string/loading"
         android:textColor="#FFFFFF"
-        android:textSize="13sp"
         android:textStyle="bold" />
 
     <TextView
         android:id="@+id/psi"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="15dp"
         android:layout_marginTop="2dp"
-        android:textColor="#FFFFFF"
-        android:textSize="12sp" />
+        android:autoSizeMaxTextSize="12sp"
+        android:autoSizeMinTextSize="7sp"
+        android:autoSizeStepGranularity="0.5sp"
+        android:autoSizeTextType="uniform"
+        android:includeFontPadding="false"
+        android:maxLines="1"
+        android:textColor="#FFFFFF" />
 
     <TextView
         android:id="@+id/updated"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
+        android:layout_width="match_parent"
+        android:layout_height="13dp"
+        android:layout_marginTop="2dp"
         android:alpha="0.85"
-        android:textColor="#FFFFFF"
-        android:textSize="10sp" />
+        android:autoSizeMaxTextSize="11sp"
+        android:autoSizeMinTextSize="6sp"
+        android:autoSizeStepGranularity="0.5sp"
+        android:autoSizeTextType="uniform"
+        android:includeFontPadding="false"
+        android:maxLines="1"
+        android:textColor="#FFFFFF" />
 </LinearLayout>

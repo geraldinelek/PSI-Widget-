@@ -2,7 +2,6 @@
 <resources>
     <string name="app_name">PSI West</string>
     <string name="label">West · 1-hr PM2.5</string>
-    <string name="unit">µg/m³</string>
     <string name="loading">Loading…</string>
     <string name="updating">Updating…</string>
     <string name="widget_description">Singapore West 1-hr PM2.5 and 24-hr PSI from NEA</string>

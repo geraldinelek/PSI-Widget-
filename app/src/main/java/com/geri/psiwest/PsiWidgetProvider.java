@@ -34,7 +34,7 @@ public class PsiWidgetProvider extends AppWidgetProvider {
     private static final String PREFS = "last_reading";
 
     private static final int[] TEXT_IDS = {
-            R.id.label, R.id.value, R.id.unit, R.id.band, R.id.psi, R.id.updated
+            R.id.label, R.id.value, R.id.band, R.id.psi, R.id.updated
     };
 
     @Override
@@ -93,9 +93,9 @@ public class PsiWidgetProvider extends AppWidgetProvider {
                 JSONObject psiItem = firstItem(fetch(PSI_URL));
                 int psi = psiItem.getJSONObject("readings")
                         .getJSONObject("psi_twenty_four_hourly").getInt("west");
-                psiText = "24-hr PSI " + psi + " · " + psiLabel(psi);
+                psiText = "24h PSI " + psi + " · " + psiLabel(psi);
             } catch (Exception e) {
-                psiText = "24-hr PSI unavailable";
+                psiText = "24h PSI unavailable";
             }
 
             prefs.edit()
@@ -104,16 +104,16 @@ public class PsiWidgetProvider extends AppWidgetProvider {
                     .putString("time", time)
                     .apply();
 
-            render(v, pm25, psiText, "As of " + time + " · tap to refresh");
+            render(v, pm25, psiText, "As of " + time);
         } catch (Exception e) {
             if (prefs.contains("pm25")) {
                 render(v, prefs.getInt("pm25", 0), prefs.getString("psi", ""),
-                        "Offline. Last " + prefs.getString("time", "") + " · tap to retry");
+                        "Offline · last " + prefs.getString("time", ""));
             } else {
                 v.setTextViewText(R.id.value, "--");
                 v.setTextViewText(R.id.band, "No data yet");
                 v.setTextViewText(R.id.psi, "");
-                v.setTextViewText(R.id.updated, "Couldn't connect · tap to retry");
+                v.setTextViewText(R.id.updated, "Tap to retry");
                 v.setInt(R.id.root, "setBackgroundResource", R.drawable.bg_neutral);
                 setTextColour(v, 0xFFFFFFFF);
             }
@@ -162,7 +162,7 @@ public class PsiWidgetProvider extends AppWidgetProvider {
     private static String formatTime(String iso) {
         try {
             return OffsetDateTime.parse(iso)
-                    .format(DateTimeFormatter.ofPattern("h:mm a, d MMM", Locale.ENGLISH));
+                    .format(DateTimeFormatter.ofPattern("h:mm a", Locale.ENGLISH));
         } catch (Exception e) {
             return iso;
         }
